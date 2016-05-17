@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * @author Niels
  */
-public class Catalogue {
+public class Catalogue implements ProductManagable {
     
     private List<Product> products;
     private Product selectedProduct;
@@ -20,6 +20,7 @@ public class Catalogue {
         products = new ArrayList<>();
     }
     
+    @Override
     public void loadProducts() {
         try(Scanner in = new Scanner(new File("data/Products.txt"))) {
             in.nextLine(); // kommentarlinje
@@ -41,6 +42,7 @@ public class Catalogue {
         }
     }
 
+    @Override
     public List<Product> searchProducts(String searchTerm, double maxPrice, Set<String> genders,
             Set<String> categories, Set<String> colors, Set<String> sizes) {
         List<Product> gender = searchGender(products, genders);
@@ -109,31 +111,38 @@ public class Catalogue {
         return results;
     }
     
+    @Override
     public void sortNameAscending(List listToSort) {
         Collections.sort(listToSort);
     }
     
+    @Override
     public void sortNameDescending(List listToSort) {
         sortNameAscending(listToSort);
         Collections.reverse(listToSort);
     }
     
+    @Override
     public void sortPriceAscending(List listToSort) {
         Collections.sort(listToSort, new ProductPriceComparator());
     }
     
+    @Override
     public void sortPriceDescending(List listToSort) {
         Collections.sort(listToSort, Collections.reverseOrder(new ProductPriceComparator()));
     }
 
+    @Override
     public List<Product> getProducts() {
         return products;
     }
 
+    @Override
     public void setSelectedProduct(Product product) {
         selectedProduct = product;
     }
 
+    @Override
     public Product getSelectedProduct() {
         return selectedProduct;
     }
