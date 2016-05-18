@@ -45,14 +45,14 @@ public class ShoppingBasketItem extends HBox {
         setAlignment(Pos.CENTER_LEFT);
         setBackground(defaultBackground);
         
-        ImageView iv = new ImageView(new Image("file:icons/PHshirtIcon.png"));
+        ImageView iv = new ImageView(new Image(item.getProduct().getImagePath()));
         iv.setFitWidth(100);
         iv.setPreserveRatio(true);
         Label name = new Label(item.getProduct().getName());
         name.setTextAlignment(TextAlignment.LEFT);
         name.setMaxWidth(250);
         name.setMinWidth(250);
-        Label details = new Label(item.getProduct().getSize() + "\n" + item.getProduct().getColor());
+        Label details = new Label(/*item.getProduct().getSize() + */"\n" + item.getProduct().getColor());
         details.setTextAlignment(TextAlignment.LEFT);
         details.setMaxWidth(40);
         details.setMinWidth(40);

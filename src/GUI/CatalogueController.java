@@ -161,8 +161,15 @@ public class CatalogueController implements Initializable, ControlledScreen {
     @FXML
     public void updateProductsShown() {
         productButtonContainer.getChildren().clear();
+        boolean small = sBox.isSelected(), medium = mBox.isSelected(), large = lBox.isSelected();
+        if(!small && !medium && !large) {
+            small = true;
+            medium = true;
+            large = true;
+            System.out.println("alle true");
+        }
         List<Product> searchedProducts = WebshopDriver.getInstance().searchProducts(searchTxt.getText(), priceSlider.getValue(), 
-            getSelectedText(genders), getSelectedText(categories), getSelectedText(colors), getSelectedText(sizes));
+            getSelectedText(genders), getSelectedText(categories), getSelectedText(colors), small, medium, large);
         List<Product> sortedProducts = WebshopDriver.getInstance().sortProducts(sortingOptionsBox.getValue(), searchedProducts);
         createProductButtons(sortedProducts);
     }
@@ -178,10 +185,7 @@ public class CatalogueController implements Initializable, ControlledScreen {
      * @return Værdierne der skal søges på med filter.
      */
     private Set<String> getSelectedText(CheckBox[] boxes) {
-        List<Boolean> values = new ArrayList<>();
-        for(CheckBox cb : boxes) {
-            values.add(cb.isSelected());
-        }
+        List<Boolean> values = getValues(boxes);
         Set<String> text = new HashSet<>();
         if(values.contains(true)) {
             for(CheckBox cb : boxes) {
@@ -196,6 +200,14 @@ public class CatalogueController implements Initializable, ControlledScreen {
             }
         }
         return text;
+    }
+    
+    private List<Boolean> getValues(CheckBox[] boxes) {
+        List<Boolean> values = new ArrayList<>();
+        for(CheckBox cb : boxes) {
+            values.add(cb.isSelected());
+        }
+        return values;
     }
     
     @Override

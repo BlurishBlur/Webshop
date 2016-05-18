@@ -54,7 +54,7 @@ public class ProductItem extends VBox {
         });
         Label text = new Label(product.getName() + "\n" + product.getPrice() + " DKK");
         text.setTextAlignment(TextAlignment.CENTER);
-        ImageView iv = new ImageView(new Image("file:icons/PHshirtIcon.png"));
+        ImageView iv = new ImageView(new Image(product.getImagePath()));
         iv.setFitWidth(100);
         iv.setPreserveRatio(true);
         getChildren().addAll(iv, text);

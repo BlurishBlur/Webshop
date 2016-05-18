@@ -29,12 +29,14 @@ public class Catalogue implements ProductManagable {
                 int id = Integer.parseInt(tokens[0]);
                 String name = tokens[1];
                 String category = tokens[2];
-                String size = tokens[3];
-                String color = tokens[4];
-                String gender = tokens[5];
-                String manufactorer = tokens[6];
-                int price = Integer.parseInt(tokens[7]);
-                products.add(new Product(id, name, category, size, color, gender, manufactorer, price));
+                boolean small = Boolean.parseBoolean(tokens[3]);
+                boolean medium = Boolean.parseBoolean(tokens[4]);
+                boolean large = Boolean.parseBoolean(tokens[5]);
+                String color = tokens[6];
+                String gender = tokens[7];
+                String manufactorer = tokens[8];
+                int price = Integer.parseInt(tokens[9]);
+                products.add(new Product(id, name, category, small, medium, large, color, gender, "", "file:icons/PHshirtIcon.png", manufactorer, price));
             }
             Collections.sort(products);
         }
@@ -45,11 +47,11 @@ public class Catalogue implements ProductManagable {
 
     @Override
     public List<Product> searchProducts(String searchTerm, double maxPrice, Set<String> genders,
-            Set<String> categories, Set<String> colors, Set<String> sizes) {
+            Set<String> categories, Set<String> colors, boolean small, boolean medium, boolean large) {
         List<Product> gender = searchGender(products, genders);
         List<Product> category = searchCategory(gender, categories);
         List<Product> color = searchColor(category, colors);
-        List<Product> size = searchSize(color, sizes);
+        List<Product> size = searchSize(color, small, medium, large);
         return search(size, searchTerm, maxPrice);
         //return search(searchSize(searchColor(searchCategory(searchGender(products, genders), categories), colors), sizes), searchTerm, maxPrice); // alternativ måde (slet ikke forvirrende)
     }
@@ -100,14 +102,14 @@ public class Catalogue implements ProductManagable {
         return results;
     }
 
-    private List<Product> searchSize(List<Product> listToSearch, Set<String> sizes) {
+    private List<Product> searchSize(List<Product> listToSearch, boolean small, boolean medium, boolean large) {
         List<Product> results = new ArrayList<>();
         for(Product p : listToSearch) {
-            for(String size : sizes) {
-                if(p.getSize().equals(size)) {
-                    results.add(p);
+            if((p.isSmall()) && small || p.isMedium() && medium || p.isLarge() && large) { // VIRKER IKKE,
+                    if(!results.contains(p)) {
+                        results.add(p);
+                    }
                 }
-            }
         }
         return results;
     }

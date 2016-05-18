@@ -1,5 +1,6 @@
 package domain;
 
+import database.DatabaseDriver;
 import domain.products.Catalogue;
 import domain.products.Product;
 import domain.products.Item;
@@ -33,6 +34,9 @@ public class WebshopDriver implements IWebshopDriver {
         userManager = new UserManager();
         catalogue = new Catalogue();
         orderID = 0;
+        DatabaseDriver.getInstance().connectPIM();
+        DatabaseDriver.getInstance().connectURM();
+        DatabaseDriver.getInstance().pim();
     }
 
     /*public void connect() {
@@ -207,8 +211,8 @@ public class WebshopDriver implements IWebshopDriver {
      */
     @Override
     public List<Product> searchProducts(String searchWord, double maxPrice, Set<String> genders,
-            Set<String> categories, Set<String> colors, Set<String> sizes) {
-        return catalogue.searchProducts(searchWord, maxPrice, genders, categories, colors, sizes);
+            Set<String> categories, Set<String> colors, boolean small, boolean medium, boolean large) {
+        return catalogue.searchProducts(searchWord, maxPrice, genders, categories, colors, small, medium, large);
     }
 
     /**

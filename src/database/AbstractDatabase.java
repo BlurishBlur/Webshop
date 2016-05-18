@@ -7,10 +7,10 @@ import java.sql.SQLException;
 /**
  * @author Niels
  */
-public abstract class AbstractDatabase implements IDatabase {
+public abstract class AbstractDatabase implements Controllable {
     
     private final String location;
-    private Connection connection = null;
+    protected Connection connection = null;
 
     public AbstractDatabase(String location) {
         this.location = location;
