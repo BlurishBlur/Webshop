@@ -50,6 +50,12 @@ public class User {
         }*/
     }
     
+    public User(String email, int right) {
+        this.email = email;
+        this.right = right;
+        orderMap = new HashMap<>();
+    }
+    
     public String getEmail() {
         return email;
     }

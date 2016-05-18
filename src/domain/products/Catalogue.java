@@ -32,8 +32,9 @@ public class Catalogue implements ProductManagable {
                 String size = tokens[3];
                 String color = tokens[4];
                 String gender = tokens[5];
-                int price = Integer.parseInt(tokens[6]);
-                products.add(new Product(id, name, category, size, color, gender, price));
+                String manufactorer = tokens[6];
+                int price = Integer.parseInt(tokens[7]);
+                products.add(new Product(id, name, category, size, color, gender, manufactorer, price));
             }
             Collections.sort(products);
         }

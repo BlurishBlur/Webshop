@@ -6,16 +6,17 @@ package domain.products;
 public class Product implements Comparable<Product> {
     
     private final int id;
-    private final String name, category, size, color, gender, description, imagePath;
+    private final String name, category, size, color, gender, manufacturer, description, imagePath;
     private final double price;
 
-    public Product(int id, String name, String category, String size, String color, String gender, double price) {
+    public Product(int id, String name, String category, String size, String color, String gender, String manufactorer, double price) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.size = size;
         this.color = color;
         this.gender = gender;
+        this.manufacturer = manufactorer;
         this.price = price;
         this.description = "";
         this.imagePath = "";
