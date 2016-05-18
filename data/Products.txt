@@ -1,17 +1,17 @@
-﻿//id, navn, kategori, størrelse, farve, køn, pris
-1, Flot kjole, Kjoler, M, Rød, Dame, 499
-2, Grim kjole, Kjoler, L, Blå, Dame, 249
-3, Pæn skjorte, Skjorter, M, Sort, Herre, 349
-4, Knap så pæn skjorte, Skjorter, M, Sort, Herre, 899
-5, Sej skjorte, Skjorter, S, Grøn, Unisex, 499
-6, Kortærmet bluse, Bluser, M, Hvid, Herre, 679
-7, Langærmet bluse, Bluser, S, Hvid, Dame, 689
-8, Hullede bukser, Bukser, S, Blå, Herre, 1299
-9, Faldskærms bukser, Bukser, M, Gul, Dame, 1199
-10, Farverig bluse, Bluser, S, Gul, Unisex, 449
-11, Farverige bukser, Bukser, L, Grøn, Unisex, 1219
-12, Grim bluse, Bluser, M, Sort, Herre, 159
-13, Pæn bluse, Bluser, S, Hvid, Dame, 239
-14, Grønne shorts, Shorts, M, Grøn, Herre, 629
-15, Sort sweater, Sweatere, L, Sort, Herre, 879
-16, Hvid t-shirt, T-shirts, S, Hvid, Dame, 299
+﻿//id, navn, kategori, størrelse, farve, køn, mærke, pris
+1, Flot kjole, Kjoler, M, Rød, Dame, A, 499
+2, Grim kjole, Kjoler, L, Blå, Dame, A, 249
+3, Pæn skjorte, Skjorter, M, Sort, Herre, B, 349
+4, Knap så pæn skjorte, Skjorter, M, Sort, Herre, B, 899
+5, Sej skjorte, Skjorter, S, Grøn, Unisex, A, 499
+6, Kortærmet bluse, Bluser, M, Hvid, Herre, B, 679
+7, Langærmet bluse, Bluser, S, Hvid, Dame, B, 689
+8, Hullede bukser, Bukser, S, Blå, Herre, A, 1299
+9, Faldskærms bukser, Bukser, M, Gul, Dame, A, 1199
+10, Farverig bluse, Bluser, S, Gul, Unisex, B, 449
+11, Farverige bukser, Bukser, L, Grøn, Unisex, B, 1219
+12, Grim bluse, Bluser, M, Sort, Herre, B, 159
+13, Pæn bluse, Bluser, S, Hvid, Dame, A, 239
+14, Grønne shorts, Shorts, M, Grøn, Herre, A, 629
+15, Sort sweater, Sweatere, L, Sort, Herre, A, 879
+16, Hvid t-shirt, T-shirts, S, Hvid, Dame, B, 299

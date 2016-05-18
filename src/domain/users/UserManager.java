@@ -187,5 +187,8 @@ public class UserManager implements UserManagable {
             usersMap.put(email, guestUser);
             setLoggedInUser(guestUser);
         }
+        else {
+            createGuestUser();
+        }
     }
 }
