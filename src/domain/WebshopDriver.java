@@ -206,6 +206,9 @@ public class WebshopDriver implements IWebshopDriver {
      * @param genders udvalgte checkbox for køn
      * @param categories udvalgte kategori fra checkboxene for kategorier
      * @param colors udvalgte farve fra checkboxene af farver
+     * @param small
+     * @param medium
+     * @param large
      * @param sizes udvalgte størrelse fra checkboxene af størrelser
      * @return Domænelagets match af de udvalgte søgekriterier
      */

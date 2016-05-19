@@ -20,7 +20,8 @@ public interface ProductManagable {
 
     void loadProducts();
 
-    List<Product> searchProducts(String searchTerm, double maxPrice, Set<String> genders, Set<String> categories, Set<String> colors, Set<String> sizes);
+    List<Product> searchProducts(String searchTerm, double maxPrice, Set<String> genders,
+            Set<String> categories, Set<String> colors, boolean small, boolean medium, boolean large);
 
     void setSelectedProduct(Product product);
 

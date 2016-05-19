@@ -200,18 +200,8 @@ public interface IWebshopDriver {
      */
     void removeItem(Item item);
 
-    /**
-     * Styrer søgekriterier valg i GUI så de kommunikere med domæne-laget.
-     *
-     * @param searchWord indtastet søgeord
-     * @param maxPrice udvalgte maks pris på pris-slideren
-     * @param genders udvalgte checkbox for køn
-     * @param categories udvalgte kategori fra checkboxene for kategorier
-     * @param colors udvalgte farve fra checkboxene af farver
-     * @param sizes udvalgte størrelse fra checkboxene af størrelser
-     * @return Domænelagets match af de udvalgte søgekriterier
-     */
-    List<Product> searchProducts(String searchWord, double maxPrice, Set<String> genders, Set<String> categories, Set<String> colors, Set<String> sizes);
+    List<Product> searchProducts(String searchWord, double maxPrice, Set<String> genders,
+            Set<String> categories, Set<String> colors, boolean small, boolean medium, boolean large);
 
     /**
      *

@@ -45,6 +45,18 @@ public class Catalogue implements ProductManagable {
         }
     }
 
+    /**
+     *
+     * @param searchTerm
+     * @param maxPrice
+     * @param genders
+     * @param categories
+     * @param colors
+     * @param small
+     * @param medium
+     * @param large
+     * @return
+     */
     @Override
     public List<Product> searchProducts(String searchTerm, double maxPrice, Set<String> genders,
             Set<String> categories, Set<String> colors, boolean small, boolean medium, boolean large) {
