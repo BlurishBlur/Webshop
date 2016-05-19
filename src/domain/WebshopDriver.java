@@ -19,7 +19,7 @@ import util.Rights;
  */
 public class WebshopDriver implements IWebshopDriver {
 
-    private static WebshopDriver instance = null;
+    private static IWebshopDriver instance = null;
     //private DatabaseController database;
     private UserManager userManager;
     private Catalogue catalogue;
@@ -290,7 +290,7 @@ public class WebshopDriver implements IWebshopDriver {
      *
      * @return Instansen af WebshopDriver.
      */
-    public static WebshopDriver getInstance() {
+    public static IWebshopDriver getInstance() {
         if (instance == null) {
             instance = new WebshopDriver();
         }
