@@ -17,7 +17,7 @@ import util.Rights;
  *
  * @author Niels
  */
-public class WebshopDriver {
+public class WebshopDriver implements IWebshopDriver {
 
     private static WebshopDriver instance = null;
     //private DatabaseController database;
@@ -60,6 +60,7 @@ public class WebshopDriver {
      * @return burgeren hvis email og kode passer, eller returneres en
      * fejlmeddelelse
      */
+    @Override
     public boolean login(String email, String password) {
         return userManager.validate(email, password);
     }
@@ -67,6 +68,7 @@ public class WebshopDriver {
     /**
      * Logger det User objekt der er aktivt i systemet af.
      */
+    @Override
     public void logout() {
         userManager.logout();
     }
@@ -77,6 +79,7 @@ public class WebshopDriver {
      *
      * @return fornavnet på den specifikke User.
      */
+    @Override
     public String getFirstName() {
         return userManager.getLoggedInUser().getName().getFirstName();
     }
@@ -87,6 +90,7 @@ public class WebshopDriver {
      *
      * @return efternavnet på den specifikke User.
      */
+    @Override
     public String getLastName() {
         return userManager.getLoggedInUser().getName().getLastName();
     }
@@ -96,6 +100,7 @@ public class WebshopDriver {
      *
      * @return vejnavnet som den specifikke User har indtastet på sin profil
      */
+    @Override
     public String getStreetName() {
         return userManager.getLoggedInUser().getAddress().getStreetName();
     }
@@ -105,6 +110,7 @@ public class WebshopDriver {
      *
      * @return husnummeret som den specifikke User har indtastet på sin profil
      */
+    @Override
     public String getHouseNumber() {
         return userManager.getLoggedInUser().getAddress().getHouseNumber();
     }
@@ -114,6 +120,7 @@ public class WebshopDriver {
      *
      * @return byen som den specifikke User har indtastet på sin profil
      */
+    @Override
     public String getCity() {
         return userManager.getLoggedInUser().getAddress().getCity();
     }
@@ -122,6 +129,7 @@ public class WebshopDriver {
      * Identificerer postnummer fra Address klassen {@link util.Address}
      * @return postnummeret som den specifikke User har indtastet på sin profil
      */
+    @Override
     public String getZipCode() {
         return userManager.getLoggedInUser().getAddress().getZipCode();
     }
@@ -130,6 +138,7 @@ public class WebshopDriver {
      * Identificerer land fra Address klassen {@link util.Address}
      * @return landet som den specifikke User har indtastet på sin profil
      */
+    @Override
     public String getCountry() {
         return userManager.getLoggedInUser().getAddress().getCountry();
     }
@@ -138,6 +147,7 @@ public class WebshopDriver {
      * Finder brugerens email adresse
      * @return den specifikke Users email-adresse
      */
+    @Override
     public String getEmail() {
         return userManager.getLoggedInUser().getEmail();
     }
@@ -146,6 +156,7 @@ public class WebshopDriver {
      * Finder Brugerens telefonnummer
      * @return brugerens telefonnummer
      */
+    @Override
     public String getPhoneNumber() {
         return userManager.getLoggedInUser().getPhoneNumber();
     }
@@ -154,6 +165,7 @@ public class WebshopDriver {
      * Finder brugerens fødselsdag (kun dato nummeret)
      * @return nummeret på dagen som brugeren har fødselsdag
      */
+    @Override
     public String getBirthDay() {
         return userManager.getLoggedInUser().getBirthDay();
     }
@@ -162,6 +174,7 @@ public class WebshopDriver {
      * Finder brugerens fødselsdag (kun månedsnummer)
      * @return nummeret på måneden som brugeren har fødselsdag
      */
+    @Override
     public String getBirthMonth() {
         return userManager.getLoggedInUser().getBirthMonth();
     }
@@ -170,6 +183,7 @@ public class WebshopDriver {
      * Finder årstallet som brugeren er født i
      * @return brugerens fødselsår
      */
+    @Override
     public String getBirthYear() {
         return userManager.getLoggedInUser().getBirthYear();
     }
@@ -179,6 +193,7 @@ public class WebshopDriver {
      * Indlæser objekterne af {@link Product} som {@link Catalogue} indeholder.
      * 
      */
+    @Override
     public void loadProducts() {
         catalogue.loadProducts();
     }
@@ -194,6 +209,7 @@ public class WebshopDriver {
      * @param sizes udvalgte størrelse fra checkboxene af størrelser
      * @return Domænelagets match af de udvalgte søgekriterier
      */
+    @Override
     public List<Product> searchProducts(String searchWord, double maxPrice, Set<String> genders,
             Set<String> categories, Set<String> colors, boolean small, boolean medium, boolean large) {
         return catalogue.searchProducts(searchWord, maxPrice, genders, categories, colors, small, medium, large);
@@ -205,6 +221,7 @@ public class WebshopDriver {
      * @param listToSort
      * @return
      */
+    @Override
     public List<Product> sortProducts(String sortTerm, List listToSort) {
         switch (sortTerm) {
             case "Alfabetisk stigende":
@@ -229,6 +246,7 @@ public class WebshopDriver {
      * 
      * @return
      */
+    @Override
     public List<Product> getProducts() {
         return catalogue.getProducts();
     }
@@ -237,6 +255,7 @@ public class WebshopDriver {
      * Styrer valget af shoppingBasket siden i GUI så den kommunikerer med domæne-laget.
      * @return informationerne om den specifikke shoppingBasket
      */
+    @Override
     public List<Item> getShoppingBasket() {
         return userManager.getShoppingBasket();
     }
@@ -245,6 +264,7 @@ public class WebshopDriver {
      *
      * @param product
      */
+    @Override
     public void setSelectedProduct(Product product) {
         catalogue.setSelectedProduct(product);
     }
@@ -254,6 +274,7 @@ public class WebshopDriver {
      * så den kommunikerer med domæne-laget.
      * @return oplysningerne om det udvalgte produkt
      */
+    @Override
     public Product getSelectedProduct() {
         return catalogue.getSelectedProduct();
     }
@@ -283,6 +304,7 @@ public class WebshopDriver {
      * skal ændres til.
      * @param item den specifikke item det drejer sig om.
      */
+    @Override
     public void changeQuantity(String email, int quantity, Item item) {
         userManager.changeQuantity(email, item, quantity);
     }
@@ -291,6 +313,7 @@ public class WebshopDriver {
      * Fjerner en item fra shoppingBasket, hvis antallet er lig med 0
      * @param item den specifikke item det får antallet 0
      */
+    @Override
     public void removeItem(Item item) {
         String email = getInstance().getEmail();
         userManager.removeItem(email, item);
@@ -320,6 +343,7 @@ public class WebshopDriver {
      * så den kommunikerer med domæne-laget.
      * @param quantity antallet valgt af den specifikke item
      */
+    @Override
     public void addItem(int quantity) {
         //Checker om brugeren er logget ind.
         if (!userManager.isUserLoggedIn()) {
@@ -350,6 +374,7 @@ public class WebshopDriver {
      * @param birthMonth det indtastet månedsnummer
      * @param birthYear det indtastet år
      */
+    @Override
     public void createUser(String email, String password, String phoneNumber,
             String firstName, String lastName, String houseNumber, String streetName,
             String zipCode, String city, String country,
@@ -365,6 +390,7 @@ public class WebshopDriver {
      * @param email den indtastet email
      * @return om emailen findes eller ej
      */
+    @Override
     public boolean isValidEmail(String email) {
         System.out.println("y");
         return userManager.isValidEmail(email);
