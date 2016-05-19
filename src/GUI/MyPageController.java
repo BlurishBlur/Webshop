@@ -1,5 +1,6 @@
 package GUI;
 
+import domain.IWebshopDriver;
 import domain.WebshopDriver;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,7 +47,7 @@ public class MyPageController implements Initializable, ControlledScreen {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        WebshopDriver driver = WebshopDriver.getInstance();
+        IWebshopDriver driver = WebshopDriver.getInstance();
         firstNameTxt.setText(driver.getFirstName());
         lastNameTxt.setText(driver.getLastName());
         streetNameTxt.setText(driver.getStreetName());
