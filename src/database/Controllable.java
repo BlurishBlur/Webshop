@@ -1,5 +1,7 @@
 package database;
 
+import java.util.List;
+
 /**
  *
  * @author Niels
@@ -13,6 +15,5 @@ public interface Controllable {
     void connect();
     void disconnect();
     boolean isConnected();
-    void getData();
     
 }

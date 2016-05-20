@@ -76,6 +76,8 @@ public class UserManager implements UserManageable {
             usersMap.put(email, new User(email, hashedPassword, salt, phoneNumber, 
                     firstName, lastName, houseNumber, streetName, zipCode, city, country, 
                     right, birthDay, birthMonth, birthYear));
+            database.DatabaseDriver.getInstance().storeUser(email, password, salt, phoneNumber, firstName, lastName, houseNumber, 
+                    streetName, zipCode, city, country, 0, birthDay, birthMonth, birthYear);
         }
     }
     

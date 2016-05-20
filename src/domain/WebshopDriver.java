@@ -414,4 +414,9 @@ public class WebshopDriver implements IWebshopDriver {
         System.out.println("y");
         return userManager.isValidEmail(email);
     }
+
+    @Override
+    public void changeProductDetails(int id, String name, String category, boolean small, boolean medium, boolean large, String color, String gender, String description, String imagePath, String manufactorer, double price) {
+        catalogue.changeProductDetails(id, name, category, small, medium, large, color, gender, description, imagePath, manufactorer, price);
+    }
 }

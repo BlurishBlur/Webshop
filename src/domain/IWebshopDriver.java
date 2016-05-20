@@ -17,15 +17,15 @@ import java.util.Set;
 public interface IWebshopDriver {
 
     /**
-     * Styrer tilføjelsen af items i GUI
-     * så den kommunikerer med domæne-laget.
+     * Styrer tilføjelsen af items i GUI så den kommunikerer med domæne-laget.
+     *
      * @param quantity antallet valgt af den specifikke item
      */
     void addItem(int quantity, String size);
 
     /**
-     * Styrer ændringen af kvantiteten på et item i shoppingBasket, i GUI
-     * så de kommunikerer med domæne-laget.
+     * Styrer ændringen af kvantiteten på et item i shoppingBasket, i GUI så de
+     * kommunikerer med domæne-laget.
      *
      * @param email emailen på den specifikke bruger som ændringen skal
      * foretages på.
@@ -36,8 +36,8 @@ public interface IWebshopDriver {
     void changeQuantity(int quantity, Item item);
 
     /**
-     * Styrer oprettelsen af en bruger i GUI
-     * så den kommunikerer med domæne-laget.
+     * Styrer oprettelsen af en bruger i GUI så den kommunikerer med
+     * domæne-laget.
      *
      * @param email den indtastet email
      * @param password den indtastet kode
@@ -57,18 +57,21 @@ public interface IWebshopDriver {
 
     /**
      * Finder brugerens fødselsdag (kun dato nummeret)
+     *
      * @return nummeret på dagen som brugeren har fødselsdag
      */
     String getBirthDay();
 
     /**
      * Finder brugerens fødselsdag (kun månedsnummer)
+     *
      * @return nummeret på måneden som brugeren har fødselsdag
      */
     String getBirthMonth();
 
     /**
      * Finder årstallet som brugeren er født i
+     *
      * @return brugerens fødselsår
      */
     String getBirthYear();
@@ -82,12 +85,14 @@ public interface IWebshopDriver {
 
     /**
      * Identificerer land fra Address klassen {@link util.Address}
+     *
      * @return landet som den specifikke User har indtastet på sin profil
      */
     String getCountry();
 
     /**
      * Finder brugerens email adresse
+     *
      * @return den specifikke Users email-adresse
      */
     String getEmail();
@@ -117,6 +122,7 @@ public interface IWebshopDriver {
 
     /**
      * Finder Brugerens telefonnummer
+     *
      * @return brugerens telefonnummer
      */
     String getPhoneNumber();
@@ -128,14 +134,17 @@ public interface IWebshopDriver {
     List<Product> getProducts();
 
     /**
-     * Styrer udvælgelsen af de specifikke produkt i GUI
-     * så den kommunikerer med domæne-laget.
+     * Styrer udvælgelsen af de specifikke produkt i GUI så den kommunikerer med
+     * domæne-laget.
+     *
      * @return oplysningerne om det udvalgte produkt
      */
     Product getSelectedProduct();
 
     /**
-     * Styrer valget af shoppingBasket siden i GUI så den kommunikerer med domæne-laget.
+     * Styrer valget af shoppingBasket siden i GUI så den kommunikerer med
+     * domæne-laget.
+     *
      * @return informationerne om den specifikke shoppingBasket
      */
     List<Item> getShoppingBasket();
@@ -149,21 +158,23 @@ public interface IWebshopDriver {
 
     /**
      * Identificerer postnummer fra Address klassen {@link util.Address}
+     *
      * @return postnummeret som den specifikke User har indtastet på sin profil
      */
     String getZipCode();
 
     /**
-     * Styrer valideringen af om en email eksisterer i GUI
-     * så den kommunikerer med domæne-laget.
+     * Styrer valideringen af om en email eksisterer i GUI så den kommunikerer
+     * med domæne-laget.
+     *
      * @param email den indtastet email
      * @return om emailen findes eller ej
      */
     boolean isValidEmail(String email);
 
     /**
-     * Styrer indlæsning af produkter på GUI.
-     * Indlæser objekterne af {@link Product} som {@link Catalogue} indeholder.
+     * Styrer indlæsning af produkter på GUI. Indlæser objekterne af
+     * {@link Product} som {@link Catalogue} indeholder.
      *
      */
     void loadProducts();
@@ -196,6 +207,7 @@ public interface IWebshopDriver {
 
     /**
      * Fjerner en item fra shoppingBasket, hvis antallet er lig med 0
+     *
      * @param item den specifikke item det får antallet 0
      */
     void removeItem(Item item);
@@ -221,10 +233,14 @@ public interface IWebshopDriver {
 
     /**
      * Styrer søgekriterier valg i GUI så de kommunikerer med domæne-laget.
+     *
      * @param sortTerm
      * @param listToSort
      * @return
      */
     List<Product> sortProducts(String sortTerm, List listToSort);
-    
+
+    void changeProductDetails(int id, String name, String category, boolean small, boolean medium, boolean large, String color,
+            String gender, String description, String imagePath, String manufactorer, double price);
+
 }
